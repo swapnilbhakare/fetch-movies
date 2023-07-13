@@ -27,3 +27,12 @@ button:active {
   background-color: #460897;
   border-color: #460897;
 }
+
+
+
+
+/* What is json? Why do we do response.json() ? */
+
+
+
+/* Why cant we simply write const response. = fetch(url) */

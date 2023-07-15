@@ -10,6 +10,7 @@ function App() {
   const [error, setError] = useState(null);
   const [timeoutId, setTimeoutId] = useState(null);
 
+  // fetching movies
   const fetchMoviesHandler = useCallback(async () => {
     setIsLoading(true);
     setError(null);
@@ -21,7 +22,7 @@ function App() {
       if (!response.ok) {
         throw new Error("Something went wrong...Retrying");
       }
-
+      // converting movies of obj into array
       const data = await response.json();
       const loadedMovies = [];
       for (const key in data) {
@@ -47,6 +48,7 @@ function App() {
     fetchMoviesHandler();
   }, [fetchMoviesHandler]);
 
+  // adding new movie
   async function addMovieHandler(movie) {
     setError(null);
     try {
@@ -68,6 +70,7 @@ function App() {
       setError(error.message);
     }
   }
+  // deleting the movie
   async function deleteMovieHandler(id) {
     setError(null);
     try {
